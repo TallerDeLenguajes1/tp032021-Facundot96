@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "View";
+}
+
+<h4>Crear Pedido</h4>
+<hr />
+    <div class="text-center">
+        <form asp-controller = "Pedido" asp-action="AgregarPedido" method="post">
+            <div class="mb-3">
+                <label for="Observation" class="form-label">Observación</label>
+                <input type="text" class="form-control" id="Observation" name="Observation" required>
+            </div>
+            <div class="mb-3">
+                <label for="Address" class="form-label">Dirección</label>
+                <input type="text" class="form-control" id="Address" name="Address" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+<div class="text-center">
+    <a asp-action="Index">Volver</a>
+</div>

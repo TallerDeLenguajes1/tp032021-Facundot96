@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model TP3.Models.ViewModels.ApproveDeliveryMViewModel 
+@{
+    ViewData["Title"] = "Pagina de cadetes";
+}
+
+<div class="text-center">
+    <form asp-controller = "Cadete" asp-action="AgregarCadete" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="name" name="Name" required>
+        </div>
+        <div class="mb-3">
+            <label for="Adress" class="form-label">Direccion</label>
+            <input type="text" class="form-control" id="_Adress" name="Adress" required>
+        </div>
+        <div class="mb-3">
+            <label for="PhoneNum" class="form-label">Telefono</label>
+            <input type="text" class="form-control" id="PhoneNum" name="PhoneNum" required>
+        </div>
+        <div class="mb-3">
+            <select  for="Courier" class="custom-select" name="Courier" style="text-align:center">
+                @foreach (var elemento in Model.CourierList)
+                {
+                    <option value="@elemento.CourierId" >@elemento.CourierName</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>

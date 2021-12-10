@@ -1,0 +1,50 @@
+﻿@model TP3.Models.ViewModels.DeliveryMViewModel
+
+@{
+    ViewData["Title"] = "ModifyForGoodCadete";
+}
+
+
+<h4>Modificar Cadete</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller = "Cadete" asp-action="ModifyForGoodCadete" method="post">
+            <div class="form-group">
+                <input readonly hidden asp-for="@Model.DeliveryM.Id" name="Id" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.DeliveryM.Name"  class="control-label"></label>
+                <input asp-for="@Model.DeliveryM.Name" name="Nombre" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.DeliveryM.Adress" class="control-label"></label>
+                <input asp-for="@Model.DeliveryM.Adress" name="Direccion" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.DeliveryM.PhoneNum" class="control-label"></label>
+                <input asp-for="@Model.DeliveryM.PhoneNum" name="Telefono" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="CadeteriaId" class="form-label">Código de cadetería actual: @Model.DeliveryM.Courier</label>
+                <select for="CadeteriaId" class="custom-select" name="CadeteriaId" style="text-align:center">
+                    @foreach (var elemento in Model.CourierList)
+                    {
+                        <option value="@elemento.CourierId">@elemento.CourierName - @elemento.CourierId</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
