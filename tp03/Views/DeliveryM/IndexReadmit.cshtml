@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<tp03.Models.ViewModels.DeliveryMViewModel>
+<div class="text-center">
+    <h2 class="display-4">Cadetes dados de baja</h2>
+</div>
+
+<div>
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Telefono</th>
+            <th>Direccion</th>
+            <th>CadeteriaID</th>
+            <th>Cantidad de pedidos realizados</th>
+            <th>Cantidad de pedidos activos</th>
+            <th>Acciones</th>
+        </tr>
+        @foreach (var element in Model)
+        {
+            if(element.Active == 0)
+            {
+                <tr>
+                    <td>@element.Id</td>
+                    <td>@element.Name</td>
+                    <td>@element.PhoneNum</td>
+                    <td>@element.Address</td>
+                    <td>@element.CourierId</td>
+                    <td>@element.OrdersComplete</td>
+                    <td>@element.OrdersActive</td>
+                    <td>
+                        <a button type="button" class="btn btn-secondary btn-sm" href="ReadmitDeliveryM?_Id=@element.Id">Readmitir</a>
+                    </td>
+                </tr>                
+            }
+        }
+    </table>
+</div>

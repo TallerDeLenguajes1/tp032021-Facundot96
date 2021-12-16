@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Pagina de pedidos";
+}
+
+
+@model List<tp03.Models.ViewModels.OrderViewModel>
+
+<div class="text-center">
+    <h2 class="display-4">Listado de Pedidos</h2>
+</div>
+<div class="text-center">
+    <table class="table table-striped" style="text-align:center">
+    @if (Model.Count() != 0)
+    {
+        <tr>
+            <th>Numero</th> 
+            <th>Obersvacion</th>
+            <th>Estado</th>
+            <th>Dirección</th>
+            <th>Acción</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Number</td>
+                <td>@item.Address</td>
+                <td>@item.Observation</td>
+                <td>@item.ClientId</td>
+                <td>@item.Status</td>
+                @if(@item.Status != "Cancelado")
+                {
+                    <td>
+                        <a button type="button" class="btn btn-secondary btn-sm" href="CancelOrder?_Id=@item.Number">Cancelar</a>
+                    </td>
+                }
+                else
+                {
+                    <td></td>        
+                }
+            </tr>
+        }
+    }
+    </table>
+
+</div>

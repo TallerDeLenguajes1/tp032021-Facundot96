@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Pagina de cadeteria";
+}
+@model List<tp03.Models.Entities.DeliveryM>
+<div class="text-center">
+    <h1 class="display-4">Listado de cadetes</h1>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Direccion</th>
+        <th>Cantidad de pedidos</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.Address</td>
+        <td>@item.OrderList.Count</td>
+    </tr>
+     }
+    </table>
+
+</div>

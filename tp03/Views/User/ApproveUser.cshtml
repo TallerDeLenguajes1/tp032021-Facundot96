@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model tp03.Models.ViewModels.ApproveUserViewModel
+@{
+    ViewData["Title"] = "Pagina de cadetes";
+}
+
+<div class="text-center">
+    <form asp-controller = "User" asp-action="ApproveUser" method="post">
+        <div class="mb-3">
+            <label for="Name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="Name" name="Name" required>
+        </div>
+        <div class="mb-3">
+            <label for="Password" class="form-label">Direccion</label>
+            <input type="text" class="form-control" id="Password" name="Password" required>
+        </div>
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input type="text" class="form-control" id="Email" name="Email" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
